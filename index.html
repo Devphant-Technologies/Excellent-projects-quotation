@@ -3,303 +3,530 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Quotation · Excellent Projects · Devphant</title>
-<meta name="description" content="Quotation from Devphant Technologies to Excellent Projects for the Contractor Manpower Mobilization Platform (web + mobile).">
+<title>Proposal · Excellent Projects × Devphant</title>
+<meta name="description" content="Devphant's proposal to Excellent Projects: a contractor manpower mobilization platform on web, Android and iOS.">
 <meta name="robots" content="noindex">
-<link rel="icon" type="image/png" href="assets/devphant-logo.png">
+<link rel="icon" type="image/png" href="assets/excellent-projects-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
 <style>
-  /* ---------- Mobile-first base ---------- */
+  /* =========== Mobile-first base =========== */
   :root{
-    --accent:#2F6FED; --accent-deep:#1B4BC0; --chip:#EAF1FE;
+    --accent:#2F6FED; --accent-2:#7FB0FF; --accent-deep:#1B4BC0; --chip:#EAF1FE;
     --ink:#0A0B0D; --muted:#4E5562; --line:#E2E5EB; --bg:#F3F5F9; --paper:#FFFFFF;
-    --night:#05060A; --pad:16px;
+    --night:#05060A; --night-ink:#F4F6FA; --night-muted:#A2A9B6;
+    --good:#13A36B; --pad:16px; --max:960px;
   }
   *{box-sizing:border-box}
-  html{-webkit-text-size-adjust:100%}
-  body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 "Geist",system-ui,sans-serif}
-  h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;letter-spacing:-.01em;margin:0}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.6 "Geist",system-ui,sans-serif;overflow-x:hidden}
+  h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;letter-spacing:-.02em;margin:0;line-height:1.15}
   p{margin:0 0 10px}
   ul{margin:0;padding-left:18px}
+  a{color:inherit}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
   .mono{font-family:"Geist Mono",ui-monospace,monospace}
-  .muted{color:var(--muted)}
 
-  .paper{background:var(--paper);overflow:hidden}
+  /* ---------- Hero ---------- */
+  .hero{position:relative;background:var(--night);color:var(--night-ink);overflow:hidden;padding:20px 0 36px}
+  .hero::before{content:"";position:absolute;inset:-40% -20% auto auto;width:520px;height:520px;border-radius:50%;
+    background:radial-gradient(circle,rgba(47,111,237,.45),transparent 65%);animation:float 12s ease-in-out infinite}
+  .hero::after{content:"";position:absolute;inset:auto auto -45% -25%;width:460px;height:460px;border-radius:50%;
+    background:radial-gradient(circle,rgba(232,28,28,.22),transparent 65%);animation:float 14s ease-in-out infinite reverse}
+  .hero .wrap{position:relative;z-index:1}
+  .topbar{display:flex;justify-content:flex-end}
+  .topbar .ref{font-size:11.5px;color:var(--night-muted);text-align:right}
+  .lockup{display:flex;align-items:center;gap:14px;margin:28px 0 22px}
+  .lockup .dp{height:28px}
+  .lockup .x{font:500 18px "Geist Mono",monospace;color:var(--night-muted)}
+  .lockup .ep{height:34px}
+  .hero h1{font-size:34px;font-weight:800}
+  .hero h1 .hl{background:linear-gradient(90deg,var(--accent-2),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero .sub{color:var(--night-muted);font-size:15.5px;margin:14px 0 26px;max-width:600px}
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .stat{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:14px}
+  .stat .v{font:700 24px "Bricolage Grotesque",sans-serif;white-space:nowrap}
+  .stat .v small{font-size:14px;font-weight:500;color:var(--night-muted)}
+  .stat .k{font-size:12.5px;color:var(--night-muted)}
+  .stat.free .v{color:#5BE3A8}
+  .hero-cta{display:flex;flex-direction:column;gap:10px;margin-top:22px}
 
-  .band{background:var(--night);color:#F4F6FA;padding:20px var(--pad);display:flex;flex-direction:column;gap:14px}
-  .band img{height:30px;width:auto;display:block;align-self:flex-start}
-  .band h1{font-size:24px;letter-spacing:.04em}
-  .band .meta{font-size:12.5px;color:#A2A9B6}
-  .stripe{height:4px;background:linear-gradient(90deg,var(--accent),#7FB0FF)}
+  .btn{display:inline-flex;justify-content:center;align-items:center;gap:8px;font:600 15px "Geist",sans-serif;text-decoration:none;border-radius:999px;padding:13px 22px;transition:transform .2s,box-shadow .2s,background .2s}
+  .btn.primary{background:var(--accent);color:#fff;box-shadow:0 8px 24px rgba(47,111,237,.35)}
+  .btn.primary:hover{background:var(--accent-deep);transform:translateY(-2px)}
+  .btn.ghost{border:1px solid rgba(255,255,255,.25);color:#fff}
+  .btn.ghost:hover{background:rgba(255,255,255,.08)}
 
-  .body{padding:24px var(--pad) 28px}
+  /* ---------- Sections ---------- */
+  section{padding:44px 0}
+  section.alt{background:var(--bg)}
+  .eyebrow{font:500 12px "Geist Mono",monospace;color:var(--accent);margin-bottom:8px}
+  h2{font-size:26px;margin-bottom:10px}
+  .intro{color:var(--muted);margin-bottom:22px;max-width:640px}
 
-  .stack{display:grid;grid-template-columns:1fr;gap:12px}
+  /* before / after */
+  .compare{display:grid;grid-template-columns:1fr;gap:12px}
+  .col{border-radius:14px;padding:18px;border:1px solid var(--line);background:#fff}
+  .col h3{font-size:16px;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .col ul{list-style:none;padding:0}
+  .col li{display:flex;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:14px}
+  .col li:first-child{border-top:0}
+  .col li i{flex:none;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:12px;font-weight:700;margin-top:1px}
+  .col.before li i{background:#FDECEC;color:#C62828}
+  .col.after{border-color:var(--accent);box-shadow:0 10px 30px rgba(47,111,237,.12)}
+  .col.after li i{background:#E3F7EE;color:var(--good)}
+  .tag{font:500 11px "Geist Mono",monospace;padding:2px 8px;border-radius:999px}
+  .col.before .tag{background:#FDECEC;color:#C62828}
+  .col.after .tag{background:var(--chip);color:var(--accent-deep)}
 
-  .party{border:1px solid var(--line);border-radius:10px;padding:14px 16px}
-  .party .n{font:700 17px "Bricolage Grotesque",sans-serif}
-  .party .role{font-size:13px;color:var(--accent-deep);font-weight:500;margin-bottom:2px}
-  .party p{margin:4px 0 0;color:var(--muted);font-size:14px}
+  /* scope */
+  .grid{display:grid;grid-template-columns:1fr;gap:12px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;transition:transform .25s,box-shadow .25s,border-color .25s}
+  .card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(10,11,13,.08);border-color:#cfd8ea}
+  .card .ic{width:36px;height:36px;border-radius:10px;background:var(--chip);color:var(--accent-deep);display:grid;place-items:center;margin-bottom:10px}
+  .card .ic svg{width:20px;height:20px}
+  .card b{display:block;font-size:15.5px;margin-bottom:6px}
+  .card ul{color:var(--muted);font-size:13.5px}
+  .card li{margin:3px 0}
+  .card.wide{grid-column:1/-1}
 
-  .facts{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:10px;margin:20px 0 28px}
-  .facts>div{padding:12px 14px}
-  .facts>div:nth-child(odd){border-right:1px solid var(--line)}
-  .facts>div:nth-child(-n+2){border-bottom:1px solid var(--line)}
-  .facts .k{font-size:12.5px;color:var(--muted)}
-  .facts .v{font-weight:600;font-size:14px}
+  .flow{list-style:none;padding:0;margin:16px 0 0;position:relative}
+  .flow::before{content:"";position:absolute;left:13px;top:14px;bottom:14px;width:2px;background:var(--line)}
+  .flow .bar{position:absolute;left:13px;top:14px;width:2px;height:0;background:var(--accent);transition:height 2.4s ease}
+  .flow.in .bar{height:calc(100% - 28px)}
+  .flow li{position:relative;display:flex;align-items:center;gap:12px;padding:6px 0;font-size:14px}
+  .flow .dot{flex:none;position:relative;z-index:1;width:28px;height:28px;border-radius:50%;background:#fff;border:2px solid var(--line);color:var(--muted);font:500 12px "Geist Mono",monospace;display:grid;place-items:center;transition:all .4s}
+  .flow li.on .dot{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:0 0 0 5px rgba(47,111,237,.15)}
+  .flow li:last-child.on .dot{background:var(--good);border-color:var(--good);box-shadow:0 0 0 5px rgba(19,163,107,.15)}
 
-  section{margin-bottom:30px}
-  h2{font-size:19px;margin-bottom:12px}
-  .lead{font-size:15.5px}
+  /* pricing */
+  .prices{display:grid;grid-template-columns:1fr;gap:14px}
+  .price{border-radius:16px;padding:22px;border:1px solid var(--line);background:#fff;position:relative;overflow:hidden}
+  .price .k{font-size:13px;color:var(--muted);font-weight:500}
+  .price .amt{font:800 36px "Bricolage Grotesque",sans-serif;margin:4px 0 2px;letter-spacing:-.02em;position:relative}
+  .price .amt small{font:500 15px "Geist",sans-serif;color:var(--muted)}
+  .price .words{font-size:12.5px;color:var(--muted);margin-bottom:12px}
+  .price ul{font-size:13.5px;color:var(--muted);position:relative}
+  .price li{margin:3px 0}
+  .price.main{background:var(--night);color:var(--night-ink);border-color:var(--night)}
+  .price.main .k,.price.main .words,.price.main ul,.price.main .amt small{color:var(--night-muted)}
+  .price.main::after{content:"";position:absolute;right:-60px;top:-60px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(47,111,237,.5),transparent 70%)}
+  .price.free{border:2px dashed var(--good);background:#F3FBF7}
+  .price.free .amt{color:var(--good)}
+  .ribbon{position:absolute;top:16px;right:16px;font:600 11px "Geist Mono",monospace;background:var(--good);color:#fff;border-radius:999px;padding:3px 10px}
 
-  .problem{background:var(--bg);border-radius:10px;padding:14px}
-  .problem b{display:block;margin-bottom:2px}
-  .problem span{font-size:13.5px;color:var(--muted)}
+  /* timeline */
+  .tl{display:grid;grid-template-columns:1fr;gap:12px}
+  .tl-item{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px}
+  .tl-item .w{font:500 12px "Geist Mono",monospace;color:var(--accent)}
+  .tl-item b{display:block;font-size:17px;margin:2px 0 6px;font-family:"Bricolage Grotesque",sans-serif}
+  .tl-item span{font-size:13.5px;color:var(--muted)}
+  .track{height:8px;border-radius:999px;background:var(--line);overflow:hidden;margin:12px 0 10px}
+  .track i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent-2));transition:width 1.6s .3s cubic-bezier(.2,.7,.2,1)}
+  .in .track i{width:var(--w)}
+  .note{font-size:13px;color:var(--muted);margin-top:12px}
 
-  .block{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:14px}
-  .block-h{padding:12px 16px;background:var(--chip)}
-  .block-h h3{font-size:16px;color:var(--accent-deep)}
-  .mods{display:grid;grid-template-columns:1fr}
-  .mod{padding:14px 16px;border-top:1px solid var(--line)}
-  .mod b{display:block;font-size:14.5px;margin-bottom:4px}
-  .mod ul{color:var(--muted);font-size:13.5px}
-  .mod li{margin:3px 0}
+  /* why */
+  .why{display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:28px}
+  .why .card b{font-size:16px}
+  .why .card p{font-size:13.5px;color:var(--muted);margin:0}
+  .marquee{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+  .marquee .row{display:flex;gap:14px;width:max-content;animation:scroll 32s linear infinite}
+  .marquee .logo{flex:none;width:130px;height:62px;border:1px solid var(--line);border-radius:12px;background:#fff;display:grid;place-items:center;padding:10px}
+  .marquee img{max-width:100%;max-height:38px;object-fit:contain;filter:grayscale(1);opacity:.75;transition:filter .3s,opacity .3s}
+  .marquee .logo:hover img{filter:none;opacity:1}
+  .trusted{font-size:13px;color:var(--muted);margin-bottom:10px}
 
-  .flow{list-style:none;padding:0;margin:12px 0 0;display:flex;flex-direction:column;gap:6px;font-size:13px}
-  .flow li{display:flex;align-items:center;gap:10px}
-  .flow .dot{flex:none;width:22px;height:22px;border-radius:50%;background:var(--chip);color:var(--accent-deep);font:500 11px "Geist Mono",monospace;display:grid;place-items:center}
-
-  .price{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:8px}
-  .price .row{padding:14px 16px}
-  .price .row b{display:block;margin-bottom:4px}
-  .price .row p{font-size:13.5px;color:var(--muted);margin:0}
-  .price .total{background:var(--night);color:#fff;padding:14px 16px;display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
-  .price .total span{font-weight:600}
-  .price .total .amt{font:600 19px "Geist Mono",monospace;white-space:nowrap}
-  .price .sub{background:var(--chip);color:var(--accent-deep)}
-  .words{font-size:13px;color:var(--muted);margin:0 0 16px}
-
-  .card{border:1px solid var(--line);border-radius:10px;padding:14px 16px}
-  .card b{display:block;margin-bottom:4px}
-  .card ul{font-size:13.5px;color:var(--muted)}
-
-  .steps{display:grid;grid-template-columns:1fr;border:1px solid var(--line);border-radius:10px;overflow:hidden}
-  .steps>div{padding:14px 16px;border-bottom:1px solid var(--line)}
-  .steps>div:last-child{border-bottom:0}
-  .steps .w{font:500 12px "Geist Mono",monospace;color:var(--accent)}
-  .steps b{display:block;font-size:14.5px;margin:2px 0}
-  .steps span{font-size:13.5px;color:var(--muted)}
-  .note{font-size:13px;color:var(--muted);margin-top:10px}
-
-  .tech{display:flex;flex-wrap:wrap;gap:8px}
-  .tech span{background:var(--chip);color:var(--accent-deep);border-radius:6px;padding:4px 10px;font-size:13px;font-weight:500}
-
+  /* tech + terms */
+  .tech{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+  .tech span{background:var(--chip);color:var(--accent-deep);border-radius:999px;padding:5px 12px;font-size:13px;font-weight:500}
   ol.terms{margin:0;padding-left:20px;font-size:14px}
   ol.terms li{margin:6px 0}
 
-  .sign{display:grid;grid-template-columns:1fr;gap:32px;margin-top:36px}
-  .sign div{border-top:1px solid var(--ink);padding-top:8px;font-size:13.5px}
-  .sign b{display:block;font-size:14.5px}
+  /* CTA */
+  .cta{background:var(--night);color:var(--night-ink);border-radius:20px;padding:28px 20px;position:relative;overflow:hidden}
+  .cta::before{content:"";position:absolute;inset:auto -80px -120px auto;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(47,111,237,.45),transparent 70%)}
+  .cta>*{position:relative}
+  .cta h2{font-size:26px}
+  .cta p{color:var(--night-muted)}
+  .cta .btns{display:flex;flex-direction:column;gap:10px;margin-top:18px}
 
-  footer{border-top:1px solid var(--line);padding:16px var(--pad);font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:4px}
+  footer{padding:24px 0 32px;font-size:12.5px;color:var(--muted)}
+  footer .wrap{display:flex;flex-direction:column;gap:4px}
 
+  /* ---------- Animation ---------- */
+  @keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(-30px,25px)}}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+  @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  @keyframes pop{0%{opacity:0;transform:scale(.6) rotate(-8deg)}70%{transform:scale(1.06)}100%{opacity:1;transform:none}}
+  .js .hero .rise{opacity:0;animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
+  .js .hero .lockup .ep{opacity:0;animation:pop .8s .35s cubic-bezier(.2,.7,.2,1) forwards}
+  .js .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+  .js .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none !important;transition:none !important}
+    .js .reveal,.js .hero .rise,.js .hero .lockup .ep{opacity:1;transform:none}
+    .track i{width:var(--w)}
+    .flow .bar{height:calc(100% - 28px)}
+  }
 
-  /* ---------- Tablet ---------- */
+  /* =========== Tablet =========== */
   @media (min-width:640px){
     :root{--pad:28px}
-    .band{flex-direction:row;justify-content:space-between;align-items:center}
-    .band .doc{text-align:right}
-    .stack.two{grid-template-columns:1fr 1fr}
-    .stack.three{grid-template-columns:repeat(3,1fr)}
-    .mods{grid-template-columns:1fr 1fr}
-    .mod.l{border-right:1px solid var(--line)}
-    .mod.full{grid-column:1/-1;border-right:0}
-    .flow{flex-direction:row;flex-wrap:wrap;gap:8px 14px}
-    .steps{grid-template-columns:1fr 1fr}
-    .steps>div{border-bottom:0;border-right:1px solid var(--line)}
-    .steps>div:nth-child(2n){border-right:0}
-    .steps>div:nth-child(-n+2){border-bottom:1px solid var(--line)}
-    .sign{grid-template-columns:1fr 1fr;gap:24px}
-    footer{flex-direction:row;justify-content:space-between;flex-wrap:wrap}
+    .hero{padding:28px 0 56px}
+    .lockup{margin:40px 0 26px}
+    .lockup .dp{height:34px}.lockup .ep{height:42px}
+    .hero h1{font-size:48px}
+    .stats{grid-template-columns:repeat(4,1fr)}
+    .hero-cta{flex-direction:row}
+    section{padding:64px 0}
+    h2{font-size:32px}
+    .compare{grid-template-columns:1fr 1fr}
+    .grid{grid-template-columns:1fr 1fr}
+    .flow{display:grid;grid-template-columns:repeat(3,1fr);gap:10px 16px}
+    .flow::before,.flow .bar{display:none}
+    .prices{grid-template-columns:1fr 1fr}
+    .prices .price.main{grid-column:1/-1}
+    .tl{grid-template-columns:1fr 1fr}
+    .why{grid-template-columns:1fr 1fr}
+    .cta{padding:40px}
+    .cta .btns{flex-direction:row;flex-wrap:wrap}
+    footer .wrap{flex-direction:row;justify-content:space-between;flex-wrap:wrap}
   }
 
-  /* ---------- Desktop ---------- */
+  /* =========== Desktop =========== */
   @media (min-width:960px){
     :root{--pad:40px}
-    body{font-size:15px}
-    .paper{max-width:900px;margin:32px auto 64px;border:1px solid var(--line);border-radius:14px}
-    .band img{height:38px}
-    .band h1{font-size:26px}
-    .facts{grid-template-columns:repeat(4,1fr)}
-    .facts>div{border-bottom:0 !important;border-right:1px solid var(--line)}
-    .facts>div:last-child{border-right:0}
-    h2{font-size:20px}
-    .steps{grid-template-columns:repeat(4,1fr)}
-    .steps>div{border-bottom:0 !important;border-right:1px solid var(--line) !important}
-    .steps>div:last-child{border-right:0 !important}
+    .hero h1{font-size:60px;max-width:820px}
+    .grid{grid-template-columns:repeat(3,1fr)}
+    .flow{grid-template-columns:repeat(6,1fr)}
+    .flow li{flex-direction:column;text-align:center;font-size:13px}
+    .prices{grid-template-columns:1.3fr 1fr 1fr}
+    .prices .price.main{grid-column:auto}
+    .why{grid-template-columns:repeat(4,1fr)}
   }
-
 </style>
 </head>
 <body>
 
-<main class="paper">
-  <header class="band">
-    <img src="assets/devphant-logo-dark.png" alt="Devphant">
-    <div class="doc">
-      <h1>QUOTATION</h1>
-      <div class="meta mono">DP/QT/2026-27/EP-001 · 27 Oct 2026</div>
-    </div>
-  </header>
-  <div class="stripe"></div>
-
-  <div class="body">
-
-    <div class="stack two">
-      <div class="party">
-        <div class="role">From</div>
-        <div class="n">Devphant Technologies</div>
-        <p>Mira Road, Mumbai, Maharashtra 401107, India</p>
-        <p>info@devphant.com · +91 91673 66731</p>
-      </div>
-      <div class="party">
-        <div class="role">To</div>
-        <div class="n">Excellent Projects</div>
-        <p>Project management &amp; site execution team</p>
-        <p>Ref: Requirement discussion, 27 Oct 2026</p>
-      </div>
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="wrap">
+    <div class="topbar rise">
+      <div class="ref mono">DP/QT/2026-27/EP-001<br>27 Oct 2026 · Valid till 26 Nov 2026</div>
     </div>
 
-    <div class="facts">
-      <div><div class="k">Date</div><div class="v">27 Oct 2026</div></div>
-      <div><div class="k">Valid until</div><div class="v">26 Nov 2026</div></div>
-      <div><div class="k">Delivery</div><div class="v">Web + Android + iOS</div></div>
-      <div><div class="k">Currency</div><div class="v">INR (₹)</div></div>
+    <div class="lockup">
+      <img class="dp rise" src="assets/devphant-logo-dark.png" alt="Devphant" style="animation-delay:.1s">
+      <span class="x rise" style="animation-delay:.25s">×</span>
+      <img class="ep" src="assets/excellent-projects-logo.png" alt="Excellent Projects">
     </div>
 
-    <section>
-      <h2>Project overview</h2>
-      <p class="lead"><b>Contractor Manpower Mobilization Platform</b>, an enterprise web application and mobile app that replaces the current Google Sheets / Google Forms / Excel setup used to onboard contractors and mobilize their manpower across BPCL and other project sites.</p>
-      <p class="muted">The existing system works, but it has reached its limits as data has grown:</p>
-      <div class="stack three">
-        <div class="problem"><b>Slow at scale</b><span>Heavy data validation on sheets makes loading and entry slow as records grow across projects.</span></div>
-        <div class="problem"><b>Not mobile-friendly</b><span>Contractors, security and site teams can't easily update or verify status from a phone.</span></div>
-        <div class="problem"><b>Weak access control</b><span>Sheet-level sharing can't restrict what each contractor sees, and deletions can't be traced.</span></div>
-      </div>
-    </section>
+    <h1 class="rise" style="animation-delay:.3s">Every contractor. Every worker. Every gate pass. <span class="hl">One screen.</span></h1>
+    <p class="sub rise" style="animation-delay:.45s">A proposal for <b style="color:#fff">Excellent Projects</b>. Your Google Sheets workflow becomes a fast, secure web app and mobile app, so mobilization for every BPCL shutdown runs in seconds, not spreadsheets.</p>
 
-    <section>
-      <h2>Scope of work</h2>
-
-      <div class="block">
-        <div class="block-h"><h3>Mobilization</h3></div>
-        <div class="mods">
-          <div class="mod l"><b>Contractor onboarding</b>
-            <ul><li>Admin creates contractor with email ID; system emails a secure invite link</li><li>Contractor logs in to their own portal and their onboarding journey starts</li><li>Each contractor sees and manages only their own manpower</li></ul></div>
-          <div class="mod"><b>Manpower registration</b>
-            <ul><li>Single-candidate entry form or bulk Excel upload</li><li>Mandatory fields with instant validation (12-digit Aadhaar, PAN format, mobile, DOB, etc.)</li><li>Auto-generated unique ID for every person</li><li>Document uploads per candidate</li></ul></div>
-          <div class="mod full"><b>Mobilization workflow &amp; status tracking</b>
-            <ul><li>Stage-wise status for every worker, visible to management in real time</li><li>Security check &amp; police verification tracking</li><li>Pending / complete indicators at every step</li></ul>
-            <ol class="flow">
-              <li><span class="dot">1</span>Registration</li>
-              <li><span class="dot">2</span>Documentation pending</li>
-              <li><span class="dot">3</span>Documentation complete</li>
-              <li><span class="dot">4</span>Security / police verification</li>
-              <li><span class="dot">5</span>Gate pass</li>
-              <li><span class="dot">6</span>Mobilized</li>
-            </ol></div>
-          <div class="mod l"><b>Gate pass &amp; accommodation</b>
-            <ul><li>Gate pass generation, activation and closure</li><li>Security / gate view to check a person's status by ID</li><li>Accommodation and room allocation tracking</li></ul></div>
-          <div class="mod"><b>Masters</b>
-            <ul><li>Projects / sites, contractors, manpower grades &amp; designations (GM, DGM, engineers, supervisors, associates, skilled / unskilled)</li><li>Trades, document types, workflow stages</li><li>User access master</li></ul></div>
-          <div class="mod full"><b>Data migration</b>
-            <ul><li>Import of existing BPCL project data from the current Google Sheets / Excel</li><li>Same structure reusable for every new contract and project</li></ul></div>
-        </div>
-      </div>
-
-      <div class="block">
-        <div class="block-h"><h3>Platform</h3></div>
-        <div class="mods">
-          <div class="mod l"><b>Role-based access control</b>
-            <ul><li>Admin, editor, commenter and viewer roles, plus custom per-module permissions</li><li>Contractor-scoped data access</li><li>Full audit log: who created, edited or deleted what, and when</li></ul></div>
-          <div class="mod"><b>Dashboards &amp; reports</b>
-            <ul><li>Live mobilization dashboard by project, contractor, grade and stage</li><li>Filters, search and export to Excel / PDF</li></ul></div>
-          <div class="mod l"><b>Mobile apps</b>
-            <ul><li>Android and iOS apps with the same core features as the web app</li><li>Published on Google Play Store and Apple App Store</li></ul></div>
-          <div class="mod"><b>Security &amp; performance</b>
-            <ul><li>Encrypted data in transit and at rest, secure login</li><li>Daily automated backups</li><li>Fast loads even with large data volumes</li></ul></div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>Commercials</h2>
-      <div class="price">
-        <div class="row"><b>One-time development</b><p>Design, development, testing and deployment of the web application and Android + iOS mobile apps covering the full mobilization scope above, including data migration and live pilot support.</p></div>
-        <div class="total"><span>One-time cost</span><span class="amt">₹ 3,60,000</span></div>
-      </div>
-      <p class="words">Rupees Three Lakh Sixty Thousand only.</p>
-
-      <div class="price">
-        <div class="row"><b>Annual Maintenance Contract (AMC)</b><p>Starts from go-live. Renewable yearly.</p></div>
-        <div class="total sub"><span>AMC, 1 year</span><span class="amt">₹ 1,00,000 / year</span></div>
-      </div>
-      <p class="words">Rupees One Lakh only per year.</p>
-    </section>
-
-    <section>
-      <h2>What the AMC covers</h2>
-      <div class="stack two">
-        <div class="card"><b>Support &amp; fixes</b><ul><li>Bug fixes and issue resolution</li><li>Priority support during plant shutdowns</li><li>Email, phone and WhatsApp support</li></ul></div>
-        <div class="card"><b>Upkeep</b><ul><li>Server monitoring, uptime and backups</li><li>Security patches and dependency updates</li><li>Android / iOS compatibility and store updates</li></ul></div>
-        <div class="card"><b>Minor enhancements</b><ul><li>New fields, masters, report tweaks and workflow adjustments</li><li>Onboarding new projects and contracts on the same structure</li></ul></div>
-        <div class="card"><b>Not included</b><ul><li>New modules or major features (quoted separately)</li><li>Third-party charges listed under Terms</li></ul></div>
-      </div>
-    </section>
-
-    <section>
-      <h2>Indicative timeline</h2>
-      <div class="steps">
-        <div><div class="w">Weeks 1–2</div><b>Discovery &amp; design</b><span>Requirement sign-off, workflow mapping from existing sheets, UI design</span></div>
-        <div><div class="w">Weeks 3–7</div><b>Build</b><span>Onboarding, registration, workflow, masters, access control, dashboards, mobile apps</span></div>
-        <div><div class="w">Weeks 8–9</div><b>UAT &amp; migration</b><span>Testing with your team, data import, store submissions</span></div>
-        <div><div class="w">Week 10</div><b>Go-live</b><span>Launch and live pilot during the next shutdown</span></div>
-      </div>
-      <p class="note">Timeline starts from receipt of advance and the current working sheets / process documents. App store approval times are set by Google and Apple.</p>
-    </section>
-
-    <section>
-      <h2>Technology</h2>
-      <div class="tech"><span>React web application</span><span>React Native (Android + iOS)</span><span>Node.js API</span><span>PostgreSQL</span><span>Cloud hosting</span><span>Role-based access &amp; audit logs</span></div>
-    </section>
-
-    <section>
-      <h2>Terms &amp; conditions</h2>
-      <ol class="terms">
-        <li>GST and other applicable taxes are extra, as applicable.</li>
-        <li>Payment terms for development: 40% advance on confirmation, 30% on UAT sign-off, 30% on go-live.</li>
-        <li>AMC is payable yearly in advance, starting from go-live.</li>
-        <li>Third-party charges are billed to the client at actuals: cloud hosting, domain, SMS / email / WhatsApp gateways, Google Play developer fee and Apple Developer Program fee.</li>
-        <li>Excellent Projects owns all its data. Data can be exported at any time.</li>
-        <li>Changes outside the scope above will be estimated and quoted separately.</li>
-        <li>This quotation is valid for 30 days from the date of issue.</li>
-      </ol>
-    </section>
-
-    <div class="sign">
-      <div><b>For Devphant Technologies</b>Authorised signatory</div>
-      <div><b>Accepted by Excellent Projects</b>Name, signature &amp; date</div>
+    <div class="stats">
+      <div class="stat rise" style="animation-delay:.55s"><div class="v">₹<span data-count="3.6" data-dec="1">3.6</span>L</div><div class="k">One-time development</div></div>
+      <div class="stat rise" style="animation-delay:.65s"><div class="v">4–<span data-count="6">6</span> <small>weeks</small></div><div class="k">Web app live</div></div>
+      <div class="stat rise" style="animation-delay:.75s"><div class="v"><span data-count="8">8</span> <small>weeks</small></div><div class="k">On Play Store &amp; App Store</div></div>
+      <div class="stat free rise" style="animation-delay:.85s"><div class="v">FREE</div><div class="k">Bug fixing, always</div></div>
     </div>
 
+    <div class="hero-cta rise" style="animation-delay:.95s">
+      <a class="btn primary" href="#start">Get started</a>
+      <a class="btn ghost" href="#scope">See what you get</a>
+    </div>
   </div>
+</header>
 
-  <footer>
+<!-- ================= BEFORE / AFTER ================= -->
+<section class="alt">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">THE SHIFT</div>
+      <h2>From sheets to seconds</h2>
+      <p class="intro">Your team has already designed a solid process. It has simply outgrown Google Sheets. We keep your process and give it the speed, control and mobile access it needs.</p>
+    </div>
+    <div class="compare">
+      <div class="col before reveal">
+        <h3>Today <span class="tag">Sheets + Forms</span></h3>
+        <ul>
+          <li><i>✕</i>Sheets slow down as data validation and records grow</li>
+          <li><i>✕</i>Hard to use on a phone at the gate or on site</li>
+          <li><i>✕</i>Sharing is all-or-nothing: viewer, commenter, editor</li>
+          <li><i>✕</i>No trace when someone edits or deletes a record</li>
+          <li><i>✕</i>Each new project means copying sheets again</li>
+        </ul>
+      </div>
+      <div class="col after reveal">
+        <h3>With Devphant <span class="tag">Web + App</span></h3>
+        <ul>
+          <li><i>✓</i>Loads in seconds, even with thousands of workers</li>
+          <li><i>✓</i>Android and iOS apps for contractors, security and site teams</li>
+          <li><i>✓</i>Role-based access: each contractor sees only their own people</li>
+          <li><i>✓</i>Full audit log of who changed what, and when</li>
+          <li><i>✓</i>Spin up a new project or contract in minutes</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SCOPE ================= -->
+<section id="scope">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">SCOPE OF WORK</div>
+      <h2>Mobilization, fully digital</h2>
+      <p class="intro">Everything your mobilization process does today, rebuilt as one connected platform.</p>
+    </div>
+
+    <div class="grid">
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="m4 7 8 6 8-6"/></svg></div>
+        <b>Contractor onboarding</b>
+        <ul><li>Admin adds contractor by email; a secure invite link goes out automatically</li><li>Contractor logs in to their own portal</li><li>Each contractor manages only their own manpower</li></ul>
+      </div>
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0"/><path d="M19 8v6M16 11h6"/></svg></div>
+        <b>Manpower registration</b>
+        <ul><li>Single entry or bulk Excel upload</li><li>Instant validation: 12-digit Aadhaar, PAN, mobile, DOB</li><li>Auto-generated unique ID for every person</li><li>Document uploads per candidate</li></ul>
+      </div>
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9h10M7 13h6"/></svg></div>
+        <b>Gate pass &amp; accommodation</b>
+        <ul><li>Gate pass generation, activation and closure</li><li>Security view to check any person's status by ID</li><li>Room and accommodation allocation</li></ul>
+      </div>
+
+      <div class="card wide reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></div>
+        <b>Mobilization workflow &amp; live status</b>
+        <ul><li>Stage-wise status for every worker, live for management</li><li>Security check and police verification tracking, with pending / complete at every step</li></ul>
+        <ol class="flow" id="flow">
+          <span class="bar"></span>
+          <li><span class="dot">1</span>Registration</li>
+          <li><span class="dot">2</span>Documentation pending</li>
+          <li><span class="dot">3</span>Documentation complete</li>
+          <li><span class="dot">4</span>Security / police verification</li>
+          <li><span class="dot">5</span>Gate pass</li>
+          <li><span class="dot">✓</span>Mobilized</li>
+        </ol>
+      </div>
+
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
+        <b>Role-based access</b>
+        <ul><li>Admin, editor, commenter, viewer, plus custom per-module permissions</li><li>Contractor-scoped data</li><li>Full audit log of every change and deletion</li></ul>
+      </div>
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
+        <b>Dashboards &amp; reports</b>
+        <ul><li>Live mobilization dashboard by project, contractor, grade and stage</li><li>Filters, search and Excel export</li></ul>
+      </div>
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></div>
+        <b>Android &amp; iOS apps</b>
+        <ul><li>Same core features as the web app</li><li>Published on Google Play Store and Apple App Store</li></ul>
+      </div>
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div>
+        <b>Masters</b>
+        <ul><li>Projects / sites, contractors, grades &amp; designations (GM, DGM, engineers, supervisors, skilled / unskilled)</li><li>Trades, document types, workflow stages, user access</li></ul>
+      </div>
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 21h16"/></svg></div>
+        <b>Data migration</b>
+        <ul><li>Your existing BPCL data imported from Google Sheets / Excel</li><li>Same structure reused for every new contract</li></ul>
+      </div>
+      <div class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/></svg></div>
+        <b>Security &amp; speed</b>
+        <ul><li>Encrypted data, secure login</li><li>Daily automated backups</li><li>Fast at any data volume</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRICING ================= -->
+<section class="alt" id="pricing">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">INVESTMENT</div>
+      <h2>Simple, transparent pricing</h2>
+      <p class="intro">One build cost, one yearly maintenance fee, and bug fixing that never costs you anything.</p>
+    </div>
+    <div class="prices">
+      <div class="price main reveal">
+        <div class="k">One-time development</div>
+        <div class="amt">₹3,60,000</div>
+        <div class="words">Rupees Three Lakh Sixty Thousand only</div>
+        <ul><li>Web app + Android + iOS apps</li><li>Full mobilization scope above</li><li>Data migration from your sheets</li><li>Live pilot support during your next shutdown</li></ul>
+      </div>
+      <div class="price reveal">
+        <div class="k">Annual Maintenance (AMC)</div>
+        <div class="amt">₹1,00,000 <small>/ year</small></div>
+        <div class="words">Rupees One Lakh only per year, from go-live</div>
+        <ul><li>Server monitoring, uptime &amp; backups</li><li>Security &amp; OS / app store updates</li><li>Minor enhancements and new project setup</li><li>Priority support during shutdowns</li></ul>
+      </div>
+      <div class="price free reveal">
+        <span class="ribbon">INCLUDED</span>
+        <div class="k">Bug fixing</div>
+        <div class="amt">FREE</div>
+        <div class="words">No charge, ever</div>
+        <ul><li>Any defect in what we deliver is fixed at no cost</li><li>Not tied to the AMC</li><li>Email, phone &amp; WhatsApp support</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TIMELINE ================= -->
+<section>
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">TIMELINE</div>
+      <h2>Live before your next shutdown</h2>
+      <p class="intro">Your team starts using the web app within weeks, with the mobile apps following on the stores.</p>
+    </div>
+    <div class="tl">
+      <div class="tl-item reveal">
+        <div class="w">4–6 weeks</div>
+        <b>Web app live</b>
+        <div class="track"><i style="--w:75%"></i></div>
+        <span>Design, build, testing with your team and data migration. Web app in use by admin, contractors and security.</span>
+      </div>
+      <div class="tl-item reveal">
+        <div class="w">8 weeks</div>
+        <b>On Play Store &amp; App Store</b>
+        <div class="track"><i style="--w:100%"></i></div>
+        <span>Android and iOS apps published and ready for site teams and contractors.</span>
+      </div>
+    </div>
+    <p class="note reveal">Timeline starts from the advance payment and receipt of your current working sheets. Final store approval times are set by Google and Apple.</p>
+  </div>
+</section>
+
+<!-- ================= WHY ================= -->
+<section class="alt">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">WHY DEVPHANT</div>
+      <h2>Built by a team that already knows your process</h2>
+    </div>
+    <div class="why">
+      <div class="card reveal"><b>We've seen your system</b><p>We walked through your sheets, forms and access setup with your team, so we start from your real workflow, not a template.</p></div>
+      <div class="card reveal"><b>Enterprise-grade</b><p>Modern, secure technology built to handle multiple projects, contractors and thousands of workers.</p></div>
+      <div class="card reveal"><b>Web and mobile, one team</b><p>One team builds the web app and both store apps, so everything works the same everywhere.</p></div>
+      <div class="card reveal"><b>With you at shutdowns</b><p>Live pilot support during your shutdowns, and free bug fixing for as long as you use the platform.</p></div>
+    </div>
+
+    <div class="reveal">
+      <div class="trusted">Trusted by teams at</div>
+      <div class="marquee">
+        <div class="row">
+          <div class="logo"><img src="assets/clients/bayer.png" alt="Bayer"></div>
+          <div class="logo"><img src="assets/clients/allied-mechanical.png" alt="Allied Mechanical Solutions"></div>
+          <div class="logo"><img src="assets/clients/manthanmarg.png" alt="ManthanMarg"></div>
+          <div class="logo"><img src="assets/clients/fiscal-stories.png" alt="Fiscal Stories"></div>
+          <div class="logo"><img src="assets/clients/moodboard.png" alt="Mood Board Company"></div>
+          <div class="logo"><img src="assets/clients/taxibaazar.png" alt="TaxiBaazar"></div>
+          <div class="logo"><img src="assets/clients/rishabh-travels.png" alt="Rishabh Travels"></div>
+          <div class="logo"><img src="assets/clients/rj-travels.png" alt="RJ Travels"></div>
+          <div class="logo" aria-hidden="true"><img src="assets/clients/bayer.png" alt=""></div>
+          <div class="logo" aria-hidden="true"><img src="assets/clients/allied-mechanical.png" alt=""></div>
+          <div class="logo" aria-hidden="true"><img src="assets/clients/manthanmarg.png" alt=""></div>
+          <div class="logo" aria-hidden="true"><img src="assets/clients/fiscal-stories.png" alt=""></div>
+          <div class="logo" aria-hidden="true"><img src="assets/clients/moodboard.png" alt=""></div>
+          <div class="logo" aria-hidden="true"><img src="assets/clients/taxibaazar.png" alt=""></div>
+          <div class="logo" aria-hidden="true"><img src="assets/clients/rishabh-travels.png" alt=""></div>
+          <div class="logo" aria-hidden="true"><img src="assets/clients/rj-travels.png" alt=""></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TECH + TERMS ================= -->
+<section>
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">TECHNOLOGY</div>
+      <div class="tech"><span>React web app</span><span>React Native (Android + iOS)</span><span>Node.js API</span><span>PostgreSQL</span><span>Cloud hosting</span><span>Audit logs</span></div>
+    </div>
+    <div class="reveal">
+      <div class="eyebrow">TERMS</div>
+      <ol class="terms">
+        <li>Development payment: 40% advance on confirmation, 30% on UAT sign-off, 30% on go-live.</li>
+        <li>AMC is payable yearly in advance, starting from go-live.</li>
+        <li>Bug fixing in delivered features is free of charge, with or without AMC.</li>
+        <li>Third-party charges are paid by the client at actuals: cloud hosting, domain, SMS / email / WhatsApp gateways, Google Play and Apple developer fees.</li>
+        <li>Excellent Projects owns all its data and can export it at any time.</li>
+        <li>New modules or changes outside this scope are quoted separately.</li>
+        <li>This quotation is valid for 30 days from 27 Oct 2026.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section id="start" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta reveal">
+      <div class="eyebrow" style="color:var(--accent-2)">NEXT STEP</div>
+      <h2>Let's have it ready for your next shutdown</h2>
+      <p>Confirm the proposal and we'll start discovery this week.</p>
+      <div class="btns">
+        <a class="btn primary" href="https://wa.me/919167366731?text=Hi%20Devphant%2C%20we%27d%20like%20to%20go%20ahead%20with%20the%20Excellent%20Projects%20proposal%20(DP%2FQT%2F2026-27%2FEP-001)." target="_blank" rel="noopener">Accept on WhatsApp</a>
+        <a class="btn ghost" href="tel:+919167366731">Call +91 91673 66731</a>
+        <a class="btn ghost" href="mailto:info@devphant.com?subject=Excellent%20Projects%20proposal%20DP%2FQT%2F2026-27%2FEP-001">Email us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
     <span>Devphant Technologies · Mumbai · Bengaluru · Delhi · Ahmedabad</span>
     <span>info@devphant.com · +91 91673 66731 · +91 77150 68399</span>
-  </footer>
-</main>
+  </div>
+</footer>
 
+<script>
+(function(){
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function countUp(el){
+    var end = parseFloat(el.dataset.count), dec = +(el.dataset.dec||0), t0 = null, dur = 1200;
+    if (reduce) { el.textContent = end.toFixed(dec); return; }
+    function step(t){ if(!t0) t0=t; var p=Math.min((t-t0)/dur,1), e=1-Math.pow(1-p,3);
+      el.textContent=(end*e).toFixed(dec); if(p<1) requestAnimationFrame(step); }
+    el.textContent=(0).toFixed(dec); requestAnimationFrame(step);
+  }
+  setTimeout(function(){ document.querySelectorAll('[data-count]').forEach(countUp); }, reduce?0:600);
+
+  function runFlow(flow){
+    flow.classList.add('in');
+    flow.querySelectorAll('li').forEach(function(li,i){ setTimeout(function(){ li.classList.add('on'); }, reduce?0:i*380); });
+  }
+
+  var items = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) {
+    items.forEach(function(el){ el.classList.add('in'); }); runFlow(document.getElementById('flow')); return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(!en.isIntersecting) return;
+      var el = en.target, sibs = Array.prototype.filter.call(el.parentNode.children, function(c){return c.classList.contains('reveal');});
+      var idx = Math.max(0, sibs.indexOf(el));
+      el.style.transitionDelay = reduce ? '0s' : (Math.min(idx,6)*0.08)+'s';
+      el.classList.add('in');
+      var f = el.querySelector('.flow'); if (f) setTimeout(function(){ runFlow(f); }, 400);
+      io.unobserve(el);
+    });
+  }, {threshold:.15, rootMargin:'0px 0px -40px 0px'});
+  items.forEach(function(el){ io.observe(el); });
+})();
+</script>
 </body>
 </html>
